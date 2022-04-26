@@ -15,6 +15,34 @@ namespace TestCrud3.Controllers
             return View();
         }
 
+<<<<<<< HEAD
+        public ActionResult AgregarGenero() {
+            conn.Open();
+            List<Genero> g = 
+                new List<Genero>();
+            SqlCommand command = new SqlCommand("Select * from [tGenero]", conn);
+
+            // int result = command.ExecuteNonQuery();
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    while (reader.Read())
+                    {
+                        Genero ii = new Genero();
+                        ii.id = reader["cod_genero"].ToString();
+                        ii.genero = reader["txt_desc"].ToString();
+
+                        g.Add(ii);
+                    }
+                    g.Add(new Genero());
+                }
+            }
+
+            conn.Close();
+            return View(g); }
+=======
+>>>>>>> 50a9f857d0f8c2ee4cc57c8fc097e39b211037b3
 
         [HttpPost]
 
@@ -81,6 +109,13 @@ namespace TestCrud3.Controllers
             {
                 return RedirectToAction("Peliculas");
             }
+<<<<<<< HEAD
+            if (Request.Form["actionA"].ToString() == "EditGenero")
+            {
+                return RedirectToAction("AgregarGenero");
+            }
+=======
+>>>>>>> 50a9f857d0f8c2ee4cc57c8fc097e39b211037b3
             if (Request.Form["actionA"].ToString() == "Delete")
             {
                 SqlCommand command = new SqlCommand("spUserABM " + Request.Form["item.id"].ToString(), conn);
