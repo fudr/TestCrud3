@@ -29,12 +29,11 @@ namespace TestCrud3.Models
         public string precioVenta { get; set; }
 
     }
-<<<<<<< HEAD
+
     public class Genero
     {
         public string id { get; set; }
         public string genero { get; set; }
     }
-=======
->>>>>>> 50a9f857d0f8c2ee4cc57c8fc097e39b211037b3
+
 }
