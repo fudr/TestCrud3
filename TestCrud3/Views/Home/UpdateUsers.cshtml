@@ -16,6 +16,7 @@
     @using (Html.BeginForm()) 
 {
     <input type="button" value="manejar Peliculas" onclick="submitFormNow($(this), 'Edit')">
+    <input type="button" value="manejar generos" onclick="submitFormNow($(this), 'EditGenero')">
     <input type="hidden" value="" name="actionA" id="actionA">
 }
 foreach (var item in Model)
