@@ -15,7 +15,7 @@ namespace TestCrud3.Controllers
             return View();
         }
 
-<<<<<<< HEAD
+
         public ActionResult AgregarGenero() {
             conn.Open();
             List<Genero> g = 
@@ -41,8 +41,6 @@ namespace TestCrud3.Controllers
 
             conn.Close();
             return View(g); }
-=======
->>>>>>> 50a9f857d0f8c2ee4cc57c8fc097e39b211037b3
 
         [HttpPost]
 
@@ -109,13 +107,12 @@ namespace TestCrud3.Controllers
             {
                 return RedirectToAction("Peliculas");
             }
-<<<<<<< HEAD
+
             if (Request.Form["actionA"].ToString() == "EditGenero")
             {
                 return RedirectToAction("AgregarGenero");
             }
-=======
->>>>>>> 50a9f857d0f8c2ee4cc57c8fc097e39b211037b3
+
             if (Request.Form["actionA"].ToString() == "Delete")
             {
                 SqlCommand command = new SqlCommand("spUserABM " + Request.Form["item.id"].ToString(), conn);
