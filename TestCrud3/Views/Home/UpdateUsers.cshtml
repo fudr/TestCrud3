@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<UserAll>
+
+    <style>
+        input{
+            font-size:10px!important;
+            margin:10px!important;
+        }
+    </style>
+
+@{
+    @using (Html.BeginForm()) 
+{
+    <input type="button" value="manejar Peliculas" onclick="submitFormNow($(this), 'Edit')">
+    <input type="hidden" value="" name="actionA" id="actionA">
+}
+foreach (var item in Model)
+{
+  <div>
+  @using (Html.BeginForm()) 
+{
+    @Html.TextBoxFor(model => item.user) @Html.TextBoxFor(model => item.first) @Html.TextBoxFor(model => item.last) @Html.TextBoxFor(model => item.doc) @Html.TextBoxFor(model => item.rol)
+    @Html.HiddenFor(model => item.id)
+    <input type="hidden" value="" name="actionA" id="actionA">
+    <input type="button" value="Guardar" onclick="submitFormNow($(this), 'Save')"> 
+    <input type="button" value="Borrar" onclick="submitFormNow($(this), 'Delete')">
+    
+  }
+   </div>
+}
+}
+<script>
+    function submitFormNow(o, v){
+        
+        $(o).parent().find('#actionA').val(v); 
+        o.parent()[0].submit()
+    }
+</script>
