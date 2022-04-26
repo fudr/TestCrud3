@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<Genero>
+
+    <style>
+        input{
+            font-size:10px!important;
+            margin:10px!important;
+        }
+    </style>
+@{
+foreach (var item in Model)
+{
+  <div>
+  @using (Html.BeginForm()) 
+{
+    @Html.TextBoxFor(model => item.genero) 
+    @Html.HiddenFor(model => item.id) 
+    <input type="hidden" value="" name="actionA" id="actionA">
+    <input type="button" value="Guardar" onclick="submitFormNow($(this), 'Save')"> 
+    <input type="button" value="Borrar" onclick="submitFormNow($(this), 'Delete')">
+    
+  }
+   </div>
+}
+}
+<script>
+    function submitFormNow(o, v){
+        
+        $(o).parent().find('#actionA').val(v); 
+        o.parent()[0].submit()
+    }
+</script>
